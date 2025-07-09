@@ -1,0 +1,29 @@
+name: Custom Bot Commit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  commit-fix:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up bot name and email
+        run: |
+          git config user.name "Raj140503"
+          git config user.email "Raj140503@users.noreply.github.com"
+
+      - name: Make a dummy change (optional)
+        run: |
+          echo "Commit made by UI Fixer Bot at $(date)" >> bot-log.txt
+
+      - name: Commit and push
+        run: |
+          git add bot-log.txt
+          git commit -m "Fix UI issues"
+          git push
