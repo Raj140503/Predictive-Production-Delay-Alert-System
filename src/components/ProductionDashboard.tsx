@@ -134,47 +134,47 @@ const ProductionDashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-bg">
       {/* Hero Section */}
-      <div className="relative h-[40vh] overflow-hidden">
+      <div className="relative h-[60vh] overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
-        <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
-          <div className="max-w-3xl animate-fade-in-up">
-            <h1 className="text-5xl font-bold text-foreground mb-6 leading-tight">
+        <div className="relative z-10 container mx-auto px-6 h-full flex items-center justify-center">
+          <div className="max-w-4xl text-center animate-fade-in-up">
+            <h1 className="text-6xl font-bold text-foreground mb-6 leading-tight">
               Predictive Production
-              <span className="block text-primary">Delay Alert System</span>
+              <span className="block text-primary mt-2">Delay Alert System</span>
             </h1>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center justify-center gap-3 mb-6">
               <Factory className="h-6 w-6 text-primary" />
-              <Badge variant="outline" className="bg-primary/10 border-primary text-primary">
+              <Badge variant="outline" className="bg-primary/10 border-primary text-primary px-4 py-2">
                 AI-Powered Manufacturing
               </Badge>
             </div>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-3xl mx-auto">
               Harness the power of machine learning to predict and prevent production delays 
               before they impact your manufacturing schedule.
             </p>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div className="flex flex-col items-center gap-8">
               <Button 
                 variant="predict" 
                 size="lg" 
                 onClick={calculateDelayRisk}
                 disabled={isAnalyzing}
-                className="group px-8 py-4 text-base font-semibold"
+                className="group px-12 py-6 text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300"
               >
-                <Brain className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
-                {isAnalyzing ? 'Analyzing...' : 'Predict Delay Risk'}
+                <Brain className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform" />
+                {isAnalyzing ? 'Analyzing Production Data...' : 'Predict Delay Risk'}
               </Button>
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2 bg-background/20 backdrop-blur-sm rounded-full px-4 py-2">
                   <Shield className="h-4 w-4 text-success" />
-                  <span>{stats.modelAccuracy}% Accuracy</span>
+                  <span className="font-medium">{stats.modelAccuracy}% Accuracy</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 bg-background/20 backdrop-blur-sm rounded-full px-4 py-2">
                   <Target className="h-4 w-4 text-accent" />
-                  <span>{stats.predictionsMade.toLocaleString()} Predictions</span>
+                  <span className="font-medium">{stats.predictionsMade.toLocaleString()} Predictions</span>
                 </div>
               </div>
             </div>
