@@ -142,32 +142,32 @@ const ProductionDashboard = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
         <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
           <div className="max-w-3xl animate-fade-in-up">
-            <div className="flex items-center gap-3 mb-4">
-              <Factory className="h-8 w-8 text-primary" />
+            <h1 className="text-5xl font-bold text-foreground mb-6 leading-tight">
+              Predictive Production
+              <span className="block text-primary">Delay Alert System</span>
+            </h1>
+            <div className="flex items-center gap-3 mb-6">
+              <Factory className="h-6 w-6 text-primary" />
               <Badge variant="outline" className="bg-primary/10 border-primary text-primary">
                 AI-Powered Manufacturing
               </Badge>
             </div>
-            <h1 className="text-5xl font-bold text-foreground mb-4 leading-tight">
-              Predictive Production
-              <span className="block text-primary">Delay Alert System</span>
-            </h1>
-            <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
               Harness the power of machine learning to predict and prevent production delays 
               before they impact your manufacturing schedule.
             </p>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button 
                 variant="predict" 
                 size="lg" 
                 onClick={calculateDelayRisk}
                 disabled={isAnalyzing}
-                className="group"
+                className="group px-8 py-4 text-base font-semibold"
               >
                 <Brain className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
                 {isAnalyzing ? 'Analyzing...' : 'Predict Delay Risk'}
               </Button>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <Shield className="h-4 w-4 text-success" />
                   <span>{stats.modelAccuracy}% Accuracy</span>
